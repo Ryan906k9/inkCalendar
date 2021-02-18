@@ -312,6 +312,7 @@ U8G2_FOR_ADAFRUIT_GFX u8g2Fonts;
 #include "toxicsoul.h"
 #include "Quotes.h"
 #include "CountDown.h"
+#include "Huangli.h"
 #include <ESPDateTime.h>
 #include "IPAPI.h"
 
@@ -328,6 +329,7 @@ const uint16_t SMARTCONFIG_QR_CODE_HEIGHT = 120;
 GeoInfo gi;
 LunarAPIResponse lunar;
 HolidayAPIResponse holiday;
+HuangliAPIResponse huangli;
 int16_t DISPLAY_WIDTH;
 int16_t DISPLAY_HEIGHT;
 u8_t pageIndex = 0;
@@ -730,8 +732,24 @@ void ShowPageHeader()
   // 显示农历
   u8g2Fonts.drawUTF8(48 + 215, 64 + 24, lunar.nongli.c_str());
 
-  // 显示节日
-  u8g2Fonts.drawUTF8((DISPLAY_WIDTH / 2 - 90), 64 + 24, holiday.holiday.c_str()); 
+  // 显示公历节日
+  if ( !huangli.festival.isEmpty() )
+  {
+    u8g2Fonts.drawUTF8((DISPLAY_WIDTH / 2 - 90), 64 + 24, huangli.festival.c_str()); 
+  }
+
+  // 显示农历节日
+  if ( !huangli.lunar_festival.isEmpty() )
+  {
+    u8g2Fonts.drawUTF8(48 + 215, 64 + 24 + 24, huangli.lunar_festival.c_str()); 
+  }
+  
+  // 显示农历节气
+  if ( !huangli.jieqi.isEmpty() )
+  {
+    u8g2Fonts.drawUTF8((DISPLAY_WIDTH - cityNameWidth - 43), 64 + 24 + 24, huangli.jieqi.c_str()); 
+  }
+
 }
 
 void ShowCurrentDate()
@@ -973,6 +991,7 @@ void setup()
 
   lunar = GetLunarInfomation();
   holiday = GetHolidayInfomation();
+  huangli = GetHuangliInfomation();
 
   setupDateTime();
 

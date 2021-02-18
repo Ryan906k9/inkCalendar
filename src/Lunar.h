@@ -8,7 +8,7 @@
 #include <WiFiClient.h>
 #include <string>
 /**
- * Get ip information from api.xlongwei.com.
+ * Get information from api.xlongwei.com.
  * 
  * 
  */
