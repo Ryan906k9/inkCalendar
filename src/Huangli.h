@@ -11,9 +11,9 @@
 #include <time.h>
 #include <ESPDateTime.h>
 
-const String HUANGLI_API_KEY = "5454054159191ea5a54e07cfb92af213";
+const String HUANGLI_API_KEY = "############################";
 /**
- * Get information from http://api.tianapi.com/txapi/lunar/index?key=APIKEY&date=2018-12-8
+ * Get information from http://api.tianapi.com/txapi/lunar/index
  * 免费 API，每天可以 100 次调用
  * 
  * 

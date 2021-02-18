@@ -208,7 +208,8 @@ PlatformIO 支持超过 35 种平台和 20+ 框架，其中就包含 Espressif 3
 ### 2.2.6 功能实现
 
 - 日期和倒计时：利用标准库和 ESPDateTime 进行实现。
-- 农历和节日API接口：https://api.xlongwei.com/doku.php?id=api:datetime，无需申请key，免费使用。
+- 农历API接口：https://api.xlongwei.com/doku.php?id=api:datetime，无需申请key，免费使用。
+- 节日API接口：http://api.tianapi.com/txapi/lunar/index ，需要申请key，每天免费100次。
 - IP查询API接口：https://www.myip.la/，通过IP地址可以获得地理位置信息。
 - 天气查询API接口：[和风天气](https://dev.qweather.com/) ，这个接口需要注册并申请 key，免费使用。需要把申请到的key填入 config.h 文件中。
 - 格言：网上搜索下载后整理了1000条出来。由于是英文的，所以在代码中着重解决了换行显示问题，单词如果被拆分需要加上连接符 “ - ”。
@@ -225,7 +226,7 @@ PlatformIO 支持超过 35 种平台和 20+ 框架，其中就包含 Espressif 3
 
 通过 PlatformIO 安装所有需要的依赖库。
 
-在 config.h 中添加申请到的和风天气的key。
+在 config.h 中添加申请到的和风天气的key。在 Huangli.h 中添加申请到的对应的 key。
 
 编译文件系统镜像并上传到驱动板：
 
